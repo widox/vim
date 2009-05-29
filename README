@@ -1,0 +1,4 @@
+
+ln -s ~/projects/vim/vim ~/.vim
+ln -s ~/projects/vim/vimrc ~/.vimrc
+ln -s ~/projects/vim/vim-tmp/ ~/.vim-tmp
