@@ -7,8 +7,7 @@ set title
 set ruler
 set number          " line numbers
 set hlsearch        " highlight searches
-"set cursorline      " highlight line for cursor position (seems to make gvim
-"slooow)
+"set cursorline      " highlight line for cursor position
 "set spell          " turn on spell check
 set cmdheight=2     " make command lines 2 high
 syntax on           " syntax highlighting
@@ -171,3 +170,28 @@ if !exists("mm_filetype_config")
 	autocmd FileType py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
 	autocmd FileType py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 endif
+
+" http://www.jukie.net/~bart/conf/vimrc
+function! OnlineDoc() 
+        let s:browser = "firefox"
+        let s:wordUnderCursor = expand("<cword>") 
+
+        if &ft == "cpp" || &ft == "c" || &ft == "ruby" || &ft == "python" 
+                let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor."+lang:".&ft
+		elseif &ft == "php"
+				let s:url = "http://php.net/manual-lookup.php?pattern=".s:wordUnderCursor
+        elseif &ft == "vim"
+                let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor
+        else 
+                return 
+        endif 
+
+        let s:cmd = "silent !" . s:browser . " " . s:url 
+		"echo  s:cmd 
+        execute  s:cmd 
+        redraw!
+endfunction 
+
+" online doc search 
+map <leader>k :call OnlineDoc()<CR>
+
