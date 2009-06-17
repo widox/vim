@@ -1,0 +1,2 @@
+# ignore any session files
+vim/sessions/*
