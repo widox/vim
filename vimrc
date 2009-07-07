@@ -55,12 +55,12 @@ if has("gui_running")
 	"set selectmode=mouse,key,cmd
 	set mousehide
 	"colorscheme darkspectrum
-	"colorscheme tango2
+	colorscheme tango2
 	"colorscheme wombat
-	colorscheme darkburn
+	"colorscheme darkburn
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme darkburn  " use this color scheme
+	colorscheme tango2 " use this color scheme
 endif
 
 " turn off hilighted search terms
@@ -182,11 +182,13 @@ function! OnlineDoc()
 				let s:url = "http://php.net/manual-lookup.php?pattern=".s:wordUnderCursor
         elseif &ft == "vim"
                 let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor
+		elseif &ft == "actionscript"
+				let s:url = "http://community.adobe.com/help/search.html?q=".s:wordUnderCursor."&l=flash_product_adobelr"
         else 
                 return 
         endif 
 
-        let s:cmd = "silent !" . s:browser . " " . s:url 
+        let s:cmd = "silent !".s:browser. " \"".s:url."\""
 		"echo  s:cmd 
         execute  s:cmd 
         redraw!
