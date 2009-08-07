@@ -73,6 +73,9 @@ map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloa
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>t :TlistToggle<CR>
+let Tlist_Show_One_File = 1
+let Tlist_GainFocus_On_ToggleOpen = 1
+
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
@@ -138,6 +141,18 @@ imap <C-f> <C-x><C-o>
 noremap <silent> <c-tab> :tabn <cr>
 noremap <silent> <c-s-tab> :tabp <cr>
 noremap <silent> <c-t> :tabnew<cr>
+
+" Switching tabs with Alt-1,2,3 in gvim
+map		<A-1>		1gt
+map		<A-2>		2gt
+map		<A-3>		3gt
+map		<A-4>		4gt
+map		<A-5>		5gt
+map		<A-6>		6gt
+map		<A-7>		7gt
+map		<A-8>		8gt
+map		<A-9>		9gt
+
 
 " setup php-doc
 source ~/.vim/plugin/php-doc.vim
