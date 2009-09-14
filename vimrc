@@ -22,6 +22,10 @@ set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
 set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
 
+set clipboard+=unnamed		" yank/delete use system clipboard
+set clipboard+=autoselect	" Selecting with the mouse in xterm auto-yanks.
+set clipboard+=exclude:screen	" Can't reliably connect to X11 from inside.
+
 filetype plugin indent on " turn on plugins and indention
 autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
 set tags=tags;/
@@ -48,6 +52,10 @@ set directory=~/.vim-tmp
 if has("gui_running")
 	set guioptions-=T " no toolbar
 	set guioptions-=m " no menubar
+	set guioptions-=r " no right scrollbar
+	set guioptions+=R " unless needed
+	set guioptions-=l " no left scrollbar
+	set guioptions+=L " unless needed
 	set guifont=Liberation\ Mono\ 8
 	set lines=75          " height = 50 lines
 	set columns=180       " width = 100 columns
@@ -75,6 +83,7 @@ map <C-n> :NERDTreeToggle<CR>
 map <leader>t :TlistToggle<CR>
 let Tlist_Show_One_File = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
+let Tlist_Close_On_Select = 1
 
 
 " snipMate setup
