@@ -13,9 +13,11 @@ set cmdheight=2     " make command lines 2 high
 syntax on           " syntax highlighting
 set autoread        " reload file when changed elsewhere
 set tabstop=4       " number of spaces for a tab
+set expandtab       " convert tabs to spaces
+set softtabstop=4   " using 4 spaces
 set shiftwidth=4    " number of spaces to autoindent
 set scrolloff=3     " keep 3 lines when scrolling
-set mousehide       " hide pointer when typing 
+set mousehide       " hide pointer when typing
 set ttyfast         " smoother changes
 set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
 
@@ -63,12 +65,12 @@ if has("gui_running")
 	"set selectmode=mouse,key,cmd
 	set mousehide
 	"colorscheme darkspectrum
-	colorscheme tango2
+	colorscheme hornet
 	"colorscheme wombat
 	"colorscheme darkburn
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme tango2 " use this color scheme
+	colorscheme hornet " use this color scheme
 endif
 
 " turn off hilighted search terms
@@ -100,13 +102,17 @@ map <leader>m :make<CR>
 map <leader>w :%s/\r//g<CR>
 map <leader>W :%s/\r/\r/g<CR>
 
+" blowout trailing whitespaces,
+" they make baby jesus cry
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+
 let g:EnhCommentifyRespectIndent = 'Yes'
 
 " Shortcuts for dealing with splits easier {{{
 map <C-j> <C-W>j
 map <C-k> <C-W>k
-map <c-l> <c-w>l 
-map <c-h> <c-w>h 
+map <c-l> <c-w>l
+map <c-h> <c-w>h
 
 " use + and - to resize horizontal splits
 map - <c-w>-
@@ -167,7 +173,7 @@ map		<A-9>		9gt
 source ~/.vim/plugin/php-doc.vim
 inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
 nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR> 
+vnoremap <C-P> :call PhpDocRange()<CR>
 
 
 " Run php lint test
@@ -197,11 +203,11 @@ if !exists("mm_filetype_config")
 endif
 
 " http://www.jukie.net/~bart/conf/vimrc
-function! OnlineDoc() 
+function! OnlineDoc()
         let s:browser = "firefox"
-        let s:wordUnderCursor = expand("<cword>") 
+        let s:wordUnderCursor = expand("<cword>")
 
-        if &ft == "cpp" || &ft == "c" || &ft == "ruby" || &ft == "python" 
+        if &ft == "cpp" || &ft == "c" || &ft == "ruby" || &ft == "python"
                 let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor."+lang:".&ft
 		elseif &ft == "php"
 				let s:url = "http://php.net/manual-lookup.php?pattern=".s:wordUnderCursor
@@ -209,17 +215,17 @@ function! OnlineDoc()
                 let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor
 		elseif &ft == "actionscript"
 				let s:url = "http://community.adobe.com/help/search.html?q=".s:wordUnderCursor."&l=flash_product_adobelr"
-        else 
-                return 
-        endif 
+        else
+                return
+        endif
 
         let s:cmd = "silent !".s:browser. " \"".s:url."\""
-		"echo  s:cmd 
-        execute  s:cmd 
+		"echo  s:cmd
+        execute  s:cmd
         redraw!
-endfunction 
+endfunction
 
-" online doc search 
+" online doc search
 map <leader>k :call OnlineDoc()<CR>
 
 " setup PHP Code Sniffer
