@@ -253,7 +253,7 @@ class LustyJuggler
       exe "noremap <silent> <C-c> :call LustyJugglerCancel()<CR>"
       exe "noremap <silent> <BS>  :call LustyJugglerCancel()<CR>"
       exe "noremap <silent> <Del> :call LustyJugglerCancel()<CR>"
-      exe "noremap <silent> <C-h> :call LustyJugglerCancel()<CR>"
+	  #exe "noremap <silent> <C-h> :call LustyJugglerCancel()<CR>"
 
       print_buffer_list()
     end
@@ -291,7 +291,7 @@ class LustyJuggler
       exe "unmap <silent> <C-c>"
       exe "unmap <silent> <BS>"
       exe "unmap <silent> <Del>"
-      exe "unmap <silent> <C-h>"
+	  #exe "unmap <silent> <C-h>"
 
       @running = false
       msg ""
