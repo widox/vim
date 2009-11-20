@@ -20,6 +20,7 @@ set scrolloff=3     " keep 3 lines when scrolling
 set mousehide       " hide pointer when typing
 set ttyfast         " smoother changes
 set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
+set sessionoptions-=options
 
 set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
