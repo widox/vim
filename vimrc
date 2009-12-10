@@ -21,6 +21,7 @@ set mousehide       " hide pointer when typing
 set ttyfast         " smoother changes
 set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
 set sessionoptions-=options
+set fileencodings=utf-8
 
 set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
@@ -34,10 +35,13 @@ autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
 set tags=tags;/
 
 
-set ignorecase "Ignore case when searching
-" smartcase, overrides 'ignorecase' when pattern has upper case characters
-set scs
+set ignorecase " Ignore case when searching
+set smartcase  " overrides 'ignorecase' when pattern has upper case characters
 set incsearch
+
+" Highlight long lines (soft limit: 80, hard limit: 100)
+:au BufWinEnter *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
+:au BufWinEnter *.php,*.py let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 
 " Folding
 set nofen
