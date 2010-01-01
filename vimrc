@@ -69,13 +69,10 @@ if has("gui_running")
 	set background=dark   " adapt colors for background
 	"set selectmode=mouse,key,cmd
 	set mousehide
-	"colorscheme darkspectrum
-	colorscheme hornet
-	"colorscheme wombat
-	"colorscheme darkburn
+	colorscheme molokai
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme hornet " use this color scheme
+	colorscheme molokai " use this color scheme
 endif
 
 " turn off hilighted search terms
@@ -192,8 +189,8 @@ if !exists("mm_filetype_config")
 	let mm_filetype_config = 1
 
 	" setup actionscript filetypes
-	autocmd BufNewFile,BufRead *.mxml set filetype=mxml
-	autocmd BufNewFile,BufRead *.as set filetype=actionscript
+    autocmd BufNewFile,BufRead *.mxml set filetype=mxml
+    autocmd BufNewFile,BufRead *.as set filetype=actionscript
 
 	" Turn on spelling in subversion/git commits
 	autocmd BufNewFile,BufRead svn-commit.* set spell

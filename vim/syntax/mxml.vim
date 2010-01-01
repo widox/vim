@@ -1,13 +1,13 @@
 " Vim syntax file
 " Language:	MXML
-" Maintainer:	Abdul Qabiz <mail@abdulqabiz.com>
+" Maintainer:   David Fishburn (dfishburn DOT vim AT gmail DOT com)
+" Creator:	Abdul Qabiz <mail@abdulqabiz.com>
 " URL:		http://www.abdulqabiz.com/files/vim/mxml.vim
 "		Author and previous maintainer:
 "		Johannes Zellner <johannes@zellner.org>
 "		Paul Siegmann <pauls@euronet.nl>
-" Last Change:	Mi, 20 Jun 2006 14:40:09 IST
+" Last Change: 2009 Sep 02
 " Filenames:	*.mxml
-" $Id: mxml.vim,v 1.0 2006/06/20 14:51:26 aqabiz Exp $
 
 " CONFIGURATION:
 "   syntax folding can be turned on by
@@ -299,8 +299,12 @@ endif
 
 syn keyword xmlDocTypeKeyword contained DOCTYPE PUBLIC SYSTEM
 syn region  xmlInlineDTD contained matchgroup=xmlDocTypeDecl start="\[" end="]" contains=@xmlDTD
-syn include @xmlDTD <sfile>:p:h/dtd.vim
-unlet b:current_syntax
+if exists(expand('<sfile>:p:h').'/dtd.vim')
+    syn include @xmlDTD <sfile>:p:h/dtd.vim
+endif
+if exists("b:current_syntax")
+    unlet b:current_syntax
+endif
 
 
 " synchronizing
@@ -319,7 +323,9 @@ syn keyword mxmlSpecialTagName  contained mx:Script mx:Style
 if main_syntax != 'actionscript' || exists("actionscript")
   " JAVA SCRIPT
   syn include @mxmlScript syntax/actionscript.vim
-  unlet b:current_syntax
+  if exists("b:current_syntax")
+      unlet b:current_syntax
+  endif
   syn region  Script start=+<mx:Script[^>]*>+ keepend end=+</mx:Script>+me=s-1 contains=@mxmlScript,mxmlCssStyleComment,mxmlScriptTag,@htmlPreproc
   syn region  mxmlScriptTag     contained start=+<mx:Script+ end=+>+       contains=htmlTagN,htmlString,htmlArg,htmlValue,htmlTagError,htmlEvent
   MXMLHiLink mxmlScriptTag xmlTag
@@ -393,3 +399,4 @@ let &cpo = s:mxml_cpo_save
 unlet s:mxml_cpo_save
 
 " vim: ts=8
+

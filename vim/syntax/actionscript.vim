@@ -1,11 +1,12 @@
 " Vim syntax file
 " Language:	actionScript
-" Maintainer:	Abdul Qabiz (mail at abdulqabiz.com)
+" Maintainer:   David Fishburn (dfishburn DOT vim AT gmail DOT com)
+" Creator:	Abdul Qabiz <mail@abdulqabiz.com>
 " 		Author and previous maintainer:
 " 		Igor Dvorsky <amigo@modesite.net>
 " URL:		http://www.abdulqabiz.com/files/vim/actionscript.vim
 " Original URL: http://www.modesite.net/vim/actionscript.vim
-" Last Change:	2006 Jun 20
+" Last Change: 2009 Sep 02
 " Updated to support AS 2.0 2004 Mar 12 by Richard Leider  (richard@appliedrhetoric.com)
 " Updated to support new AS 2.0 Flash 8 Language Elements 2005 September 29 (richard@appliedrhetoric.com)
 " Updated to support new AS 3.0 Language Elements 2006 June 20 by Abdul Qabiz (mail at abdulqabiz.com)
@@ -165,3 +166,4 @@ if main_syntax == 'actionscript'
 endif
 
 " vim: ts=8
+
