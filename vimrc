@@ -93,6 +93,12 @@ let Tlist_Close_On_Select = 1
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
 
+" setup Gist.vim
+let g:gist_detect_filetype = 1
+let g:gist_open_browser_after_post = 1
+map <leader>gi :Gist<CR>
+map <leader>gip :Gist-p<CR>
+
 " shortcuts for sessionman
 map <leader>l :SessionList<CR>
 map <leader>s :SessionSave<CR>
