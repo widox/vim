@@ -258,3 +258,23 @@ endfunction
 command! Phpcs execute RunPhpcs()
 autocmd BufRead *.php map <leader>M :execute RunPhpcs()<CR>
 
+" easily grep through a project environment created via workit
+function! PGrep(pattern, ...)
+    let pattern = a:pattern
+
+    if a:0 == 0
+        let ext = '*'
+    else
+        let ext = a:1
+    endif
+
+    let proj_path = system("echo $PROJ_PATH | tr -d '\n'")
+    :exe 'cd '.proj_path
+
+    let search_path = proj_path . "/**/*." . ext
+
+    :execute "vimgrep /" . pattern . "/j " search_path | :copen
+endfunction
+
+command! -nargs=* PGrep :call PGrep(<f-args>)
+
