@@ -160,6 +160,12 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 imap <C-f> <C-x><C-o>
 "}}}
 
+set complete=""
+set complete+=.
+set complete+=k
+set complete+=b
+set complete+=t
+
 " making tabs fun again!
 noremap <silent> <c-tab> :tabn <cr>
 noremap <silent> <c-s-tab> :tabp <cr>
@@ -208,11 +214,14 @@ if !exists("mm_filetype_config")
 	autocmd FileType php set errorformat=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\",%m\ in\ %f\ on\ line\ %l
 	autocmd FileType py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
 	autocmd FileType py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
+	autocmd FileType actionscript set makeprg=as3lint\ %
+    autocmd FileType actionscript set errorformat=Error\ \#%n:\ %m\ .\ \ \ \ \ %f\,\ Ln\ %l\,\ Col\ %c
+    "autocmd FileType actionscript set errorformat=:\ %m,%C%f\,\ Ln\ %l\,\ Col\ %c
 endif
 
 " http://www.jukie.net/~bart/conf/vimrc
 function! OnlineDoc()
-        let s:browser = "firefox"
+        let s:browser = "chromium-browser"
         let s:wordUnderCursor = expand("<cword>")
 
         if &ft == "cpp" || &ft == "c" || &ft == "ruby" || &ft == "python"
