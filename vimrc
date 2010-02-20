@@ -22,6 +22,7 @@ set ttyfast         " smoother changes
 set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
 set sessionoptions-=options
 set fileencodings=utf-8
+set textwidth=80
 
 set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
