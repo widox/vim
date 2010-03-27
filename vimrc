@@ -1,7 +1,7 @@
-set nocompatible
+set nocompatible    " use Vim settings; must be first!
 let mapleader = "," " set mapleader to comma instead of backslash
 set backspace=indent,eol,start
-set hidden
+set hidden          " set dirty buffer as hidden by default
 set history=200     " number of lines of history to remember
 set title
 set ruler
@@ -41,8 +41,8 @@ set smartcase  " overrides 'ignorecase' when pattern has upper case characters
 set incsearch
 
 " Highlight long lines (soft limit: 80, hard limit: 100)
-:au BufWinEnter *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
-:au BufWinEnter *.php,*.py let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+:au BufRead *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
+:au BufRead *.php,*.py let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
 
 " Folding
 set nofen
@@ -70,10 +70,10 @@ if has("gui_running")
 	set background=dark   " adapt colors for background
 	"set selectmode=mouse,key,cmd
 	set mousehide
-	colorscheme molokai
+	colorscheme blackboard "molokai
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme molokai " use this color scheme
+	colorscheme blackboard "molokai
 endif
 
 " turn off hilighted search terms
