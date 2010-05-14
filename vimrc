@@ -3,12 +3,12 @@ let mapleader = "," " set mapleader to comma instead of backslash
 set backspace=indent,eol,start
 set hidden          " set dirty buffer as hidden by default
 set history=200     " number of lines of history to remember
-set title
-set ruler
+set title           " update the title bar for current file please
+set ruler           " show cursor position
 set number          " line numbers
 set hlsearch        " highlight searches
 "set cursorline      " highlight line for cursor position
-"set spell          " turn on spell check
+"set spell           " turn on spell check
 set cmdheight=2     " make command lines 2 high
 syntax on           " syntax highlighting
 set autoread        " reload file when changed elsewhere
@@ -21,24 +21,26 @@ set mousehide       " hide pointer when typing
 set ttyfast         " smoother changes
 set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
 set sessionoptions-=options
-set fileencodings=utf-8
-set textwidth=80
+set fileencodings=utf-8 " be language friendly
+set textwidth=79    " keep it < 80!
+set list            " show tabs and trailing spaces
+set list listchars=tab:>-,trail:.,extends:>
 
-set autoindent      " use idention from above line in new line
+"set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
 
-set clipboard+=unnamed		" yank/delete use system clipboard
-set clipboard+=autoselect	" Selecting with the mouse in xterm auto-yanks.
-set clipboard+=exclude:screen	" Can't reliably connect to X11 from inside.
+set clipboard+=unnamed         " yank/delete use system clipboard
+set clipboard+=autoselect      " selecting with the mouse in xterm auto-yanks.
+set clipboard+=exclude:screen  " can't reliably connect to X11 from inside.
 
 filetype plugin indent on " turn on plugins and indention
 autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
-set tags=tags;/
+set tags=tags;/     " so vim knows about ctags files
 
 
-set ignorecase " Ignore case when searching
-set smartcase  " overrides 'ignorecase' when pattern has upper case characters
-set incsearch
+set ignorecase      " ignore case when searching
+set smartcase       " overrides 'ignorecase' when pattern has upper case characters
+set incsearch       " show my search when typing
 
 " Highlight long lines (soft limit: 80, hard limit: 100)
 :au BufRead *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
@@ -50,11 +52,6 @@ set fdl=0
 
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
-
-"nmap <c-s> :w<CR>
-"vmap <c-s> <esc><c-s>
-"imap <c-s> <esc><c-s>
-
 
 "---- Options for Windows
 if has("gui_running")
@@ -158,7 +155,8 @@ autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 autocmd FileType css set omnifunc=csscomplete#CompleteCSS
 autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
-imap <C-f> <C-x><C-o>
+
+imap <C-space> <C-x><C-o>
 "}}}
 
 set complete=""
@@ -218,6 +216,9 @@ if !exists("mm_filetype_config")
 	autocmd FileType actionscript set makeprg=as3lint\ %
     autocmd FileType actionscript set errorformat=Error\ \#%n:\ %m\ .\ \ \ \ \ %f\,\ Ln\ %l\,\ Col\ %c
     "autocmd FileType actionscript set errorformat=:\ %m,%C%f\,\ Ln\ %l\,\ Col\ %c
+
+    " source code gets wrapped
+    autocmd FileType javascript,php,html,python,actionscript set autoindent
 endif
 
 " http://www.jukie.net/~bart/conf/vimrc
