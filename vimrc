@@ -22,7 +22,6 @@ set ttyfast         " smoother changes
 set dictionary+=/usr/share/dict/words " set dictionary for autocomplete
 set sessionoptions-=options
 set fileencodings=utf-8 " be language friendly
-set textwidth=79    " keep it < 80!
 set list            " show tabs and trailing spaces
 set list listchars=tab:>-,trail:.,extends:>
 
@@ -45,6 +44,8 @@ set incsearch       " show my search when typing
 " Highlight long lines (soft limit: 80, hard limit: 100)
 :au BufRead *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
 :au BufRead *.php,*.py let w:m2=matchadd('ErrorMsg', '\%>100v.\+', -1)
+:au BufRead *.php,*.py set formatoptions-=t
+:au BufRead *.php,*.py set textwidth=79    " keep it < 80!
 
 " Folding
 set nofen
@@ -67,19 +68,28 @@ if has("gui_running")
 	set background=dark   " adapt colors for background
 	"set selectmode=mouse,key,cmd
 	set mousehide
-	colorscheme blackboard "molokai
+	colorscheme molokai "blackboard
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme blackboard "molokai
+	colorscheme molokai "blackboard
 endif
+
+" don't need to use a : for commands, just hit ;
+" breaks ability to use ; when searching with f/F :(
+"nnoremap ; :
 
 " turn off hilighted search terms
 map <leader>n :nohls<CR>
 
 ",v brings up my .vimrc
 "",V reloads it -- making all changes active (have to save first)
-map ,v :sp ~/.vimrc<CR><C-W>_
-map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+map ,v :sp $MYVIMRC<CR><C-W>_
+map <silent> ,V :source $MYVIMRC<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
+
+" Source the vimrc file after saving it
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+endif
 
 map <C-n> :NERDTreeToggle<CR>
 map <leader>t :TlistToggle<CR>
