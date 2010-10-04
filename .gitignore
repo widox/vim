@@ -1,2 +1,5 @@
 # ignore any session files
 vim/sessions/*
+
+# ignore linked custom snippets
+vim/snippets/*-custom.snippets
