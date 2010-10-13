@@ -33,7 +33,7 @@ set clipboard+=autoselect      " selecting with the mouse in xterm auto-yanks.
 set clipboard+=exclude:screen  " can't reliably connect to X11 from inside.
 
 filetype plugin indent on " turn on plugins and indention
-autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
+"autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
 set tags=tags;/     " so vim knows about ctags files
 
 
@@ -69,6 +69,11 @@ if has("gui_running")
 	"set selectmode=mouse,key,cmd
 	set mousehide
 	colorscheme molokai "blackboard
+
+    "set fuoptions=maxvert,maxhorz
+    "au GUIEnter * set fullscreen
+    "au GUIEnter * simalt \~x
+    set lines=999 columns=999
 else
 	set background=dark   " adapt colors for dark background
 	colorscheme molokai "blackboard

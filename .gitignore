@@ -3,3 +3,5 @@ vim/sessions/*
 
 # ignore linked custom snippets
 vim/snippets/*-custom.snippets
+
+vim/.netrwhist
