@@ -124,6 +124,10 @@ map <leader>m :make<CR>
 map <leader>w :%s/\r//g<CR>
 map <leader>W :%s/\r/\r/g<CR>
 
+
+" save quicker
+map W :w<CR>
+
 " blowout trailing whitespaces,
 " they make baby jesus cry
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
