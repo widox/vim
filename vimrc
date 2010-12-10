@@ -1,3 +1,7 @@
+filetype off 
+call pathogen#helptags()
+call pathogen#runtime_append_all_bundles()
+
 set nocompatible    " use Vim settings; must be first!
 let mapleader = "," " set mapleader to comma instead of backslash
 set backspace=indent,eol,start
@@ -97,6 +101,7 @@ if has("autocmd")
 endif
 
 map <C-n> :NERDTreeToggle<CR>
+let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 map <leader>t :TlistToggle<CR>
 let Tlist_Show_One_File = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
@@ -203,10 +208,10 @@ map		<A-9>		9gt
 
 
 " setup php-doc
-source ~/.vim/plugin/php-doc.vim
-inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-nnoremap <C-P> :call PhpDocSingle()<CR>
-vnoremap <C-P> :call PhpDocRange()<CR>
+"source ~/.vim/plugin/php-doc.vim
+"inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
+"nnoremap <C-P> :call PhpDocSingle()<CR>
+"vnoremap <C-P> :call PhpDocRange()<CR>
 
 
 " Run php lint test
