@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 """ Install the files needed for this config to operate on the user's system
 correctly
+any plugin git repo's should be listed in a 'bundle_list' file in the
+same dir as this file
+
 adadpted from: https://github.com/mitechie/pyvim
 """
 
@@ -75,14 +78,21 @@ def fix_xmledit():
     subprocess.call('ln -s {0} {1}'.format(xml, mako), shell=True)
 
 def copy_custom_snippets():
-    """We need to add our custom snippets after the plugin is downloaded/setup
-    
-    """
+    """We need to add our custom snippets after the plugin is downloaded/setup"""
+
     import glob, shutil, os
     copy_to = os.path.expanduser('~/.vim/bundle/snipMate.git/snippets')
     for file in glob.glob("custom_snippets/*.snippets"):
         shutil.copy(file, copy_to)
 
+def setup_commandt():
+    """Need to compile for the command-t plugin"""
+
+    cmd = 'cd $HOME/.vim/bundle/Command-T.git/ruby/command-t/ && ruby extconf.rb && make'
+    subprocess.call(cmd, shell=True)
+
+
+# ok, setup vimrc and clone any plugin repos!
 for conf_file in CONFIG_FILES:
     removefile(conf_file)
     linkfile(conf_file)
@@ -90,5 +100,6 @@ for conf_file in CONFIG_FILES:
 #empty_bundles()
 remove_bundles()
 install_bundles()
+setup_commandt()
 fix_xmledit()
 copy_custom_snippets()
