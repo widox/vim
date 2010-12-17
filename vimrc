@@ -108,6 +108,7 @@ let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 
 map <leader>T :CommandT<CR>
+map <leader>yr :YRShow<CR>
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
