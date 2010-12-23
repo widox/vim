@@ -38,7 +38,8 @@ set clipboard+=exclude:screen  " can't reliably connect to X11 from inside.
 
 filetype plugin indent on " turn on plugins and indention
 "autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
-set tags=tags;/     " so vim knows about ctags files
+" search for a tags file recursively from cwd to /
+set tags=.tags,tags;/     " so vim knows about ctags files
 
 
 set ignorecase      " ignore case when searching
@@ -100,12 +101,14 @@ if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 endif
 
-map <C-n> :NERDTreeToggle<CR>
+map <leader>nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
 map <leader>t :TlistToggle<CR>
 let Tlist_Show_One_File = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
+
+let g:LustyJugglerShowKeys = 'a'
 
 map <leader>T :CommandT<CR>
 map <leader>yr :YRShow<CR>
