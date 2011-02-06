@@ -1,6 +1,5 @@
 https://github.com/vim-scripts/snipMate.git
 https://github.com/vim-scripts/The-NERD-tree.git
-https://github.com/vim-scripts/SuperTab.git
 https://github.com/vim-scripts/Command-T.git
 https://github.com/vim-scripts/Better-Javascript-Indentation.git
 https://github.com/vim-scripts/matchit.zip.git
@@ -12,6 +11,8 @@ https://github.com/vim-scripts/css_color.vim.git
 https://github.com/vim-scripts/phpcomplete.vim.git
 https://github.com/vim-scripts/xmledit.git
 https://github.com/vim-scripts/sessionman.vim.git
-https://github.com/vim-scripts/tComment.git
-https://github.com/vim-scripts/YankRing.vim.git
+#https://github.com/vim-scripts/tComment.git
+https://github.com/vim-scripts/The-NERD-Commenter.git
+#https://github.com/vim-scripts/YankRing.vim.git
 https://github.com/vim-scripts/SuperTab-continued..git
+https://github.com/vim-scripts/PDV-revised.git
