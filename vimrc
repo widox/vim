@@ -28,6 +28,7 @@ set sessionoptions-=options
 set fileencodings=utf-8 " be language friendly
 set list            " show tabs and trailing spaces
 set list listchars=tab:>-,trail:.,extends:>
+set mouse=a
 
 "set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
@@ -90,6 +91,7 @@ endif
 
 " turn off hilighted search terms
 map <leader>n :nohls<CR>
+nnoremap <leader><leader> <c-^>
 
 ",v brings up my .vimrc
 "",V reloads it -- making all changes active (have to save first)
