@@ -112,7 +112,7 @@ let Tlist_Close_On_Select = 1
 
 let g:LustyJugglerShowKeys = 'a'
 
-map <leader>T :CommandT<CR>
+map <leader>T :CommandTFlush<CR>\|:CommandT<CR>
 map <leader>yr :YRShow<CR>
 
 " snipMate setup
