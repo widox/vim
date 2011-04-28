@@ -42,10 +42,12 @@ filetype plugin indent on " turn on plugins and indention
 " search for a tags file recursively from cwd to /
 set tags=.tags,tags;/     " so vim knows about ctags files
 
-
 set ignorecase      " ignore case when searching
 set smartcase       " overrides 'ignorecase' when pattern has upper case characters
 set incsearch       " show my search when typing
+
+" wait less time for command sequences
+set timeoutlen=500
 
 " Highlight long lines (soft limit: 80, hard limit: 100)
 :au BufRead *.php,*.py let w:m1=matchadd('Search', '\%<101v.\%>80v', -1)
@@ -74,7 +76,7 @@ if has("gui_running")
 	set background=dark   " adapt colors for background
 	"set selectmode=mouse,key,cmd
 	set mousehide
-	colorscheme molokai "blackboard
+	colorscheme solarized " molokai blackboard
 
     "set fuoptions=maxvert,maxhorz
     "au GUIEnter * set fullscreen
@@ -82,12 +84,18 @@ if has("gui_running")
     set lines=999 columns=999
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme molokai "blackboard
+	colorscheme solarized " molokai blackboard
 endif
+
+" For when you forget to sudo.. Really Write the file.
+cmap w!! w !sudo tee % >/dev/null
 
 " don't need to use a : for commands, just hit ;
 " breaks ability to use ; when searching with f/F :(
 "nnoremap ; :
+
+" to quickly get the path of current file command mode
+cabbr <expr> %% expand('%:p:h')
 
 " turn off hilighted search terms
 map <leader>n :nohls<CR>
@@ -110,7 +118,9 @@ let Tlist_Show_One_File = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
 
-let g:LustyJugglerShowKeys = 'a'
+"let g:LustyJugglerShowKeys = 'a'
+" let g:LustyJugglerAltTabMode = 1
+" noremap <silent> <A-s> :LustyJuggler<CR>
 
 map <leader>T :CommandTFlush<CR>\|:CommandT<CR>
 map <leader>yr :YRShow<CR>
@@ -190,11 +200,18 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 imap <C-space> <C-x><C-o>
 "}}}
 
-set complete=""
+" set complete=""
 set complete+=.
 set complete+=k
 set complete+=b
 set complete+=t
+
+set completeopt+=menuone,longest
+
+" let g:SuperTabDefaultCompletionType = "context"
+" let g:SuperTabContextDefaultCompletionType = "<c-n>"
+let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
+let g:SuperTabLongestHighlight = 1
 
 " making tabs fun again!
 noremap <silent> <c-tab> :tabn <cr>
