@@ -206,9 +206,9 @@ set complete+=k
 set complete+=b
 set complete+=t
 
-set completeopt+=menuone,longest
+set completeopt+=menuone,longest,preview
 
-" let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabDefaultCompletionType = "context"
 " let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabLongestHighlight = 1
