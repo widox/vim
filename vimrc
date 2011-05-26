@@ -29,6 +29,8 @@ set fileencodings=utf-8 " be language friendly
 set list            " show tabs and trailing spaces
 set list listchars=tab:>-,trail:.,extends:>
 set mouse=a
+set laststatus=2    " always display a status line at the bottom of the window
+
 
 "set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
