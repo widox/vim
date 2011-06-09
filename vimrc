@@ -115,10 +115,21 @@ endif
 
 map <leader>nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
-map <leader>t :TlistToggle<CR>
+map <leader>t :TagbarToggle<CR> "TlistToggle
 let Tlist_Show_One_File = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
 let Tlist_Close_On_Select = 1
+
+" no, don't overwrite my mappings!
+let g:phpunit_key_map = 1
+map <Leader>tt :PhpUnit<Enter>
+map <Leader>tf :PhpUnitFile<Enter>
+map <Leader>ts :PhpUnitSwitchFile<Enter>
+
+" auto close when you jump to a tag.
+let g:tagbar_autoclose = 1
+" move cursor to window when opened
+let g:tagbar_autofocus = 1
 
 "let g:LustyJugglerShowKeys = 'a'
 " let g:LustyJugglerAltTabMode = 1
