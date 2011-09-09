@@ -11,7 +11,7 @@ import os
 import subprocess
 
 
-CONFIG_FILES = ['vimrc', 'vim', 'vim-tmp']
+CONFIG_FILES = ['vimrc', 'vim']
 HOME_PATH = os.path.expanduser('~')
 
 

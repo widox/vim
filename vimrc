@@ -61,6 +61,7 @@ set timeoutlen=500
 set nofen
 set fdl=0
 
+silent !mkdir -p ~/.vim-tmp/
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
 
