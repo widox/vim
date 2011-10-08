@@ -79,7 +79,7 @@ if has("gui_running")
 	set background=dark   " adapt colors for background
 	"set selectmode=mouse,key,cmd
 	set mousehide
-	colorscheme solarized " molokai blackboard
+	colorscheme lucius "solarized molokai blackboard
 
     "set fuoptions=maxvert,maxhorz
     "au GUIEnter * set fullscreen
@@ -87,7 +87,7 @@ if has("gui_running")
     set lines=999 columns=999
 else
 	set background=dark   " adapt colors for dark background
-	colorscheme solarized " molokai blackboard
+	colorscheme lucius "solarized molokai blackboard
 endif
 
 " For when you forget to sudo.. Really Write the file.
