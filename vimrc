@@ -31,7 +31,6 @@ set list listchars=tab:>-,trail:.,extends:>
 set mouse=a
 set laststatus=2    " always display a status line at the bottom of the window
 
-
 "set autoindent      " use idention from above line in new line
 set wildmenu        " better tab completion for :commands
 
@@ -67,27 +66,27 @@ set directory=~/.vim-tmp
 
 "---- Options for Windows
 if has("gui_running")
-	set guioptions-=T " no toolbar
-	set guioptions-=m " no menubar
-	set guioptions-=r " no right scrollbar
-	set guioptions+=R " unless needed
-	set guioptions-=l " no left scrollbar
-	set guioptions+=L " unless needed
-	set guifont=Liberation\ Mono\ 8
-	set lines=75          " height = 50 lines
-	set columns=180       " width = 100 columns
-	set background=dark   " adapt colors for background
-	"set selectmode=mouse,key,cmd
-	set mousehide
-	colorscheme lucius "solarized molokai blackboard
+    set guioptions-=T " no toolbar
+    set guioptions-=m " no menubar
+    set guioptions-=r " no right scrollbar
+    set guioptions+=R " unless needed
+    set guioptions-=l " no left scrollbar
+    set guioptions+=L " unless needed
+    set guifont=Liberation\ Mono\ 8
+    set lines=75          " height = 50 lines
+    set columns=180       " width = 100 columns
+    set background=dark   " adapt colors for background
+    "set selectmode=mouse,key,cmd
+    set mousehide
+    colorscheme lucius "solarized molokai blackboard
 
     "set fuoptions=maxvert,maxhorz
     "au GUIEnter * set fullscreen
     "au GUIEnter * simalt \~x
     set lines=999 columns=999
 else
-	set background=dark   " adapt colors for dark background
-	colorscheme lucius "solarized molokai blackboard
+    set background=dark   " adapt colors for dark background
+    colorscheme lucius "solarized molokai blackboard
 endif
 
 " For when you forget to sudo.. Really Write the file.
@@ -102,6 +101,8 @@ cabbr <expr> %% expand('%:p:h')
 
 " turn off hilighted search terms
 map <leader>n :nohls<CR>
+
+" switch between buffers quicker
 nnoremap <leader><leader> <c-^>
 
 ",v brings up my .vimrc
@@ -148,10 +149,6 @@ let g:gist_open_browser_after_post = 1
 map <leader>gi :Gist<CR>
 map <leader>gip :Gist-p<CR>
 
-" shortcuts for sessionman
-map <leader>l :SessionList<CR>
-map <leader>s :SessionSave<CR>
-
 " lets make quicker
 map <leader>m :make<CR>
 
@@ -159,13 +156,8 @@ map <leader>m :make<CR>
 map <leader>w :%s/\r//g<CR>
 map <leader>W :%s/\r/\r/g<CR>
 
-
 " save quicker
 map W :w<CR>
-
-" blowout trailing whitespaces,
-" they make baby jesus cry
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 
 let g:EnhCommentifyRespectIndent = 'Yes'
 
@@ -222,8 +214,8 @@ set complete+=t
 
 set completeopt+=menuone,longest,preview
 
-let g:SuperTabDefaultCompletionType = "context"
-" let g:SuperTabContextDefaultCompletionType = "<c-n>"
+"let g:SuperTabDefaultCompletionType = "context"
+"let g:SuperTabContextDefaultCompletionType = "<c-n>"
 let g:SuperTabContextDefaultCompletionType = "<c-x><c-o>"
 let g:SuperTabLongestHighlight = 1
 
@@ -250,34 +242,27 @@ map		<A-9>		9gt
 "nnoremap <C-P> :call PhpDocSingle()<CR>
 "vnoremap <C-P> :call PhpDocRange()<CR>
 
-
-" Run php lint test
-map <F9> :w<CR>:!php -l %<CR>
+" blowout trailing whitespaces,
+" they make baby jesus cry
+nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " toggle paste mode
 map <F8> :set paste!<Bar>set paste?<CR>
 " toggle spell checking
 map <F7> :set spell!<Bar>set spell?<CR>
 
 if !exists("mm_filetype_config")
-	let mm_filetype_config = 1
+    let mm_filetype_config = 1
 
-	" setup actionscript filetypes
-    autocmd BufNewFile,BufRead *.mxml set filetype=mxml
-    autocmd BufNewFile,BufRead *.as set filetype=actionscript
+    " Turn on spelling in subversion/git commits
+    autocmd BufNewFile,BufRead svn-commit.* set spell
+    autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
 
-	" Turn on spelling in subversion/git commits
-	autocmd BufNewFile,BufRead svn-commit.* set spell
-	autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
-
-	" chage :make for different languages
-	autocmd FileType php set makeprg=php\ -l\ %
-	" error format for both php -l and phpcs
-	autocmd FileType php set errorformat=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\",%m\ in\ %f\ on\ line\ %l
-	autocmd FileType py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
-	autocmd FileType py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
-	autocmd FileType actionscript set makeprg=as3lint\ %
-    autocmd FileType actionscript set errorformat=Error\ \#%n:\ %m\ .\ \ \ \ \ %f\,\ Ln\ %l\,\ Col\ %c
-    "autocmd FileType actionscript set errorformat=:\ %m,%C%f\,\ Ln\ %l\,\ Col\ %c
+    " chage :make for different languages
+    autocmd FileType php set makeprg=php\ -l\ %
+    " error format for both php -l and phpcs
+    autocmd FileType php set errorformat=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\",%m\ in\ %f\ on\ line\ %l
+    autocmd FileType py set makeprg=python\ -c\ \"import\ py_compile,sys;\ sys.stderr=sys.stdout;\ py_compile.compile(r'%')\"
+    autocmd FileType py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
     " source code gets wrapped
     autocmd FileType javascript,php,html,python,actionscript set autoindent
@@ -289,19 +274,19 @@ function! OnlineDoc()
         let s:wordUnderCursor = expand("<cword>")
 
         if &ft == "cpp" || &ft == "c" || &ft == "ruby" || &ft == "python"
-                let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor."+lang:".&ft
-		elseif &ft == "php"
-				let s:url = "http://php.net/manual-lookup.php?pattern=".s:wordUnderCursor
+            let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor."+lang:".&ft
+        elseif &ft == "php"
+            let s:url = "http://php.net/manual-lookup.php?pattern=".s:wordUnderCursor
         elseif &ft == "vim"
-                let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor
-		elseif &ft == "actionscript"
-				let s:url = "http://community.adobe.com/help/search.html?q=".s:wordUnderCursor."&l=flash_product_adobelr"
+            let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor
+        elseif &ft == "actionscript"
+            let s:url = "http://community.adobe.com/help/search.html?q=".s:wordUnderCursor."&l=flash_product_adobelr"
         else
-                return
+            return
         endif
 
         let s:cmd = "silent !".s:browser. " \"".s:url."\""
-		"echo  s:cmd
+        "echo  s:cmd
         execute  s:cmd
         redraw!
 endfunction
@@ -312,7 +297,7 @@ map <leader>k :call OnlineDoc()<CR>
 " setup PHP Code Sniffer
 function! RunPhpcs()
     let l:filename=@%
-	let l:phpcs_output=system('phpcs --report=csv --standard=Pear '.l:filename)
+    let l:phpcs_output=system('phpcs --report=csv --standard=Pear '.l:filename)
     let l:phpcs_list=split(l:phpcs_output, "\n")
     unlet l:phpcs_list[0]
     cexpr l:phpcs_list
@@ -321,24 +306,4 @@ endfunction
 
 command! Phpcs execute RunPhpcs()
 autocmd BufRead *.php map <leader>M :execute RunPhpcs()<CR>
-
-" easily grep through a project environment created via workit
-function! PGrep(pattern, ...)
-    let pattern = a:pattern
-
-    if a:0 == 0
-        let ext = '*'
-    else
-        let ext = a:1
-    endif
-
-    let proj_path = system("echo $PROJ_PATH | tr -d '\n'")
-    :exe 'cd '.proj_path
-
-    let search_path = "/**/*." . ext
-
-    :execute "vimgrep /" . pattern . "/j " search_path | :copen
-endfunction
-
-command! -nargs=* PGrep :call PGrep(<f-args>)
 
