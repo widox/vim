@@ -6,13 +6,11 @@ set nocompatible    " use Vim settings; must be first!
 let mapleader = "," " set mapleader to comma instead of backslash
 set backspace=indent,eol,start
 set hidden          " set dirty buffer as hidden by default
-set history=200     " number of lines of history to remember
+set history=10000   " number of lines of history to remember
 set title           " update the title bar for current file please
 set ruler           " show cursor position
 set number          " line numbers
 set hlsearch        " highlight searches
-"set cursorline      " highlight line for cursor position
-"set spell           " turn on spell check
 set cmdheight=2     " make command lines 2 high
 syntax on           " syntax highlighting
 set autoread        " reload file when changed elsewhere
@@ -29,10 +27,13 @@ set fileencodings=utf-8 " be language friendly
 set list            " show tabs and trailing spaces
 set list listchars=tab:>-,trail:.,extends:>
 set mouse=a
-set laststatus=2    " always display a status line at the bottom of the window
+set laststatus=2      " always display a status line at the bottom of the window
+set switchbuf=useopen " jump to open win that has a buffer already open
+set showcmd           " show how many of whatever is being selected
 
-"set autoindent      " use idention from above line in new line
-set wildmenu        " better tab completion for :commands
+" better tab completion for :commands
+set wildmenu
+set wildmode=longest,list
 
 set clipboard+=unnamed         " yank/delete use system clipboard
 set clipboard+=autoselect      " selecting with the mouse in xterm auto-yanks.
