@@ -3,7 +3,7 @@ call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 
 set nocompatible    " use Vim settings; must be first!
-let mapleader = "," " set mapleader to comma instead of backslash
+let mapleader=","   " set mapleader to comma instead of backslash
 set backspace=indent,eol,start
 set hidden          " set dirty buffer as hidden by default
 set history=10000   " number of lines of history to remember
@@ -93,10 +93,6 @@ endif
 " For when you forget to sudo.. Really Write the file.
 cmap w!! w !sudo tee % >/dev/null
 
-" don't need to use a : for commands, just hit ;
-" breaks ability to use ; when searching with f/F :(
-"nnoremap ; :
-
 " to quickly get the path of current file command mode
 cabbr <expr> %% expand('%:p:h')
 
@@ -143,12 +139,6 @@ map <leader>yr :YRShow<CR>
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
-
-" setup Gist.vim
-let g:gist_detect_filetype = 1
-let g:gist_open_browser_after_post = 1
-map <leader>gi :Gist<CR>
-map <leader>gip :Gist-p<CR>
 
 " lets make quicker
 map <leader>m :make<CR>
@@ -236,13 +226,6 @@ map		<A-7>		7gt
 map		<A-8>		8gt
 map		<A-9>		9gt
 
-
-" setup php-doc
-"source ~/.vim/plugin/php-doc.vim
-"inoremap <C-P> <ESC>:call PhpDocSingle()<CR>i
-"nnoremap <C-P> :call PhpDocSingle()<CR>
-"vnoremap <C-P> :call PhpDocRange()<CR>
-
 " blowout trailing whitespaces,
 " they make baby jesus cry
 nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
@@ -253,6 +236,12 @@ map <F7> :set spell!<Bar>set spell?<CR>
 
 if !exists("mm_filetype_config")
     let mm_filetype_config = 1
+
+    " Jump to last cursor position unless it's invalid or in an event handler
+    autocmd BufReadPost *
+                \ if line("'\"") > 0 && line("'\"") <= line("$") |
+                \   exe "normal g`\"" |
+                \ endif
 
     " Turn on spelling in subversion/git commits
     autocmd BufNewFile,BufRead svn-commit.* set spell
@@ -268,32 +257,6 @@ if !exists("mm_filetype_config")
     " source code gets wrapped
     autocmd FileType javascript,php,html,python,actionscript set autoindent
 endif
-
-" http://www.jukie.net/~bart/conf/vimrc
-function! OnlineDoc()
-        let s:browser = "chromium-browser"
-        let s:wordUnderCursor = expand("<cword>")
-
-        if &ft == "cpp" || &ft == "c" || &ft == "ruby" || &ft == "python"
-            let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor."+lang:".&ft
-        elseif &ft == "php"
-            let s:url = "http://php.net/manual-lookup.php?pattern=".s:wordUnderCursor
-        elseif &ft == "vim"
-            let s:url = "http://www.google.com/codesearch?q=".s:wordUnderCursor
-        elseif &ft == "actionscript"
-            let s:url = "http://community.adobe.com/help/search.html?q=".s:wordUnderCursor."&l=flash_product_adobelr"
-        else
-            return
-        endif
-
-        let s:cmd = "silent !".s:browser. " \"".s:url."\""
-        "echo  s:cmd
-        execute  s:cmd
-        redraw!
-endfunction
-
-" online doc search
-map <leader>k :call OnlineDoc()<CR>
 
 " setup PHP Code Sniffer
 function! RunPhpcs()
