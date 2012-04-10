@@ -37,7 +37,6 @@ set wildmode=longest,list
 
 set clipboard+=unnamed         " yank/delete use system clipboard
 set clipboard+=autoselect      " selecting with the mouse in xterm auto-yanks.
-set clipboard+=exclude:screen  " can't reliably connect to X11 from inside.
 
 filetype plugin indent on " turn on plugins and indention
 "autocmd BufEnter * :sil! lcd %:p:h " switch to file's dir
