@@ -133,8 +133,7 @@ let g:tagbar_autofocus = 1
 " let g:LustyJugglerAltTabMode = 1
 " noremap <silent> <A-s> :LustyJuggler<CR>
 
-map <leader>T :CommandTFlush<CR>\|:CommandT<CR>
-map <leader>yr :YRShow<CR>
+map <leader>f :CommandTFlush<CR>\|:CommandT<CR>
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
