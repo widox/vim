@@ -50,9 +50,6 @@ set incsearch       " show my search when typing
 " wait less time for command sequences
 set timeoutlen=500
 
-:au BufRead *.php,*.py set formatoptions-=t
-:au BufRead *.php,*.py set textwidth=79    " keep it < 80!
-
 " Folding
 set nofen
 set fdl=0
@@ -83,7 +80,7 @@ if has("gui_running")
     set lines=999 columns=999
 else
     set background=dark   " adapt colors for dark background
-    colorscheme badwolf "lucius solarized molokai blackboard
+    colorscheme badwolf " desert256 lucius solarized molokai blackboard
 endif
 
 " For when you forget to sudo.. Really Write the file.
@@ -125,10 +122,6 @@ map <Leader>ts :PhpUnitSwitchFile<Enter>
 let g:tagbar_autoclose = 1
 " move cursor to window when opened
 let g:tagbar_autofocus = 1
-
-"let g:LustyJugglerShowKeys = 'a'
-" let g:LustyJugglerAltTabMode = 1
-" noremap <silent> <A-s> :LustyJuggler<CR>
 
 map <leader>f :CommandTFlush<CR>\|:CommandT<CR>
 
@@ -256,7 +249,7 @@ endif
 " setup PHP Code Sniffer
 function! RunPhpcs()
     let l:filename=@%
-    let l:phpcs_output=system('phpcs --report=csv --standard=Pear '.l:filename)
+    let l:phpcs_output=system('phpcs '.l:filename)
     let l:phpcs_list=split(l:phpcs_output, "\n")
     unlet l:phpcs_list[0]
     cexpr l:phpcs_list
