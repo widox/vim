@@ -95,6 +95,9 @@ map <leader>n :nohls<CR>
 " switch between buffers quicker
 nnoremap <leader><leader> <c-^>
 
+nnoremap <leader>o o<Esc>
+
+
 ",v brings up my .vimrc
 "",V reloads it -- making all changes active (have to save first)
 map ,v :sp $MYVIMRC<CR><C-W>_
