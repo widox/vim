@@ -97,6 +97,8 @@ nnoremap <leader><leader> <c-^>
 
 nnoremap <leader>o o<Esc>
 
+" find all non-ASCII (unicode) characters
+map <leader>u /[^ -~]<CR>
 
 ",v brings up my .vimrc
 "",V reloads it -- making all changes active (have to save first)
