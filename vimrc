@@ -54,8 +54,8 @@ set timeoutlen=500
 
 " quickly toggle folding
 nnoremap <Space> za
-"set foldmethod=indent
-"set foldlevelstart=0
+set foldmethod=indent
+set foldlevelstart=0
 
 silent !mkdir -p ~/.vim-tmp/
 set backupdir=~/.vim-tmp
@@ -83,7 +83,7 @@ if has("gui_running")
     set lines=999 columns=999
 else
     set background=dark   " adapt colors for dark background
-    colorscheme badwolf " desert256 lucius solarized molokai blackboard
+    colorscheme kolor "badwolf desert256 lucius solarized molokai blackboard
 endif
 
 " For when you forget to sudo.. Really Write the file.
