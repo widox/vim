@@ -34,6 +34,8 @@ set showcmd           " show how many of whatever is being selected
 " better tab completion for :commands
 set wildmenu
 set wildmode=longest,list
+set wildignore+=.hg,.git,.svn                    " Version control
+set wildignore+=*.jpg,*.bmp,*.gif,*.png,*.jpeg   " binary images
 
 set clipboard+=unnamed         " yank/delete use system clipboard
 set clipboard+=autoselect      " selecting with the mouse in xterm auto-yanks.
@@ -50,9 +52,10 @@ set incsearch       " show my search when typing
 " wait less time for command sequences
 set timeoutlen=500
 
-" Folding
-set nofen
-set fdl=0
+" quickly toggle folding
+nnoremap <Space> za
+"set foldmethod=indent
+"set foldlevelstart=0
 
 silent !mkdir -p ~/.vim-tmp/
 set backupdir=~/.vim-tmp
@@ -112,6 +115,7 @@ endif
 
 map <leader>nt :NERDTreeToggle<CR>
 let NERDTreeIgnore = ['\.pyc$', '\.pyo$']
+
 map <leader>t :TagbarToggle<CR> "TlistToggle
 let Tlist_Show_One_File = 1
 let Tlist_GainFocus_On_ToggleOpen = 1
