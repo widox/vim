@@ -147,6 +147,9 @@ map <leader>W :%s/\r/\r/g<CR>
 " save quicker
 map W :w<CR>
 
+" Toggle hidden characaters
+nnoremap <leader>h :set list!<cr>
+
 let g:EnhCommentifyRespectIndent = 'Yes'
 
 " Shortcuts for dealing with splits easier {{{
@@ -194,8 +197,8 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 imap <C-space> <C-x><C-o>
 "}}}
 
-" set complete=""
 set complete+=.
+set complete+=w
 set complete+=k
 set complete+=b
 set complete+=t
@@ -213,15 +216,15 @@ noremap <silent> <c-s-tab> :tabp <cr>
 noremap <silent> <c-t> :tabnew<cr>
 
 " Switching tabs with Alt-1,2,3 in gvim
-map		<A-1>		1gt
-map		<A-2>		2gt
-map		<A-3>		3gt
-map		<A-4>		4gt
-map		<A-5>		5gt
-map		<A-6>		6gt
-map		<A-7>		7gt
-map		<A-8>		8gt
-map		<A-9>		9gt
+map <A-1> 1gt
+map <A-2> 2gt
+map <A-3> 3gt
+map <A-4> 4gt
+map <A-5> 5gt
+map <A-6> 6gt
+map <A-7> 7gt
+map <A-8> 8gt
+map <A-9> 9gt
 
 " blowout trailing whitespaces,
 " they make baby jesus cry
