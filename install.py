@@ -100,6 +100,6 @@ for conf_file in CONFIG_FILES:
 #empty_bundles()
 remove_bundles()
 install_bundles()
-setup_commandt()
+#setup_commandt()
 fix_xmledit()
 copy_custom_snippets()
