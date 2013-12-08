@@ -132,7 +132,7 @@ let g:tagbar_autoclose = 1
 " move cursor to window when opened
 let g:tagbar_autofocus = 1
 
-map <leader>f :CommandTFlush<CR>\|:CommandT<CR>
+let g:ctrlp_map = '<leader>f'
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
