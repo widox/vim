@@ -133,6 +133,7 @@ let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
 let g:ctrlp_map = '<leader>f'
+nnoremap <leader>b :CtrlPBuffer<CR>
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'
