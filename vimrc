@@ -137,6 +137,11 @@ let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 
 let g:ctrlp_map = '<leader>f'
+let g:ctrlp_show_hidden = 0          " ignore hidden files
+let g:ctrlp_custom_ignore = {
+            \ 'dir':  '\v[\/]\.(git|hg|svn)$|\app\/cache',
+            \ 'file': '\v\.(exe|so|dll)$'
+            \ }
 nnoremap <leader>b :CtrlPBuffer<CR>
 
 " snipMate setup
@@ -249,8 +254,12 @@ if !exists("mm_filetype_config")
                 \ endif
 
     " Turn on spelling in subversion/git commits
-    autocmd BufNewFile,BufRead svn-commit.* set spell
-    autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
+    autocmd BufNewFile,BufRead svn-commit.*,COMMIT_EDITMSG set spell
+    " and don't ever fold
+    autocmd BufNewFile,BufRead svn-commit.*,COMMIT_EDITMSG set nofoldenable
+
+    " No folds in XML
+    autocmd FileType xml set nofoldenable
 
     " change :make for different languages
     autocmd FileType php set makeprg=php\ -l\ %
