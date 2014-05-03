@@ -82,6 +82,7 @@ if has("gui_running")
     "au GUIEnter * simalt \~x
     set lines=999 columns=999
 else
+    set t_Co=256
     set background=dark   " adapt colors for dark background
     colorscheme kolor "badwolf desert256 lucius solarized molokai blackboard
 endif
