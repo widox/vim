@@ -57,6 +57,9 @@ nnoremap <Space> za
 set foldmethod=indent
 set foldlevelstart=0
 
+" dont' let vim-json do conceal magic; annoying
+let g:vim_json_syntax_conceal = 0
+
 silent !mkdir -p ~/.vim-tmp/
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
