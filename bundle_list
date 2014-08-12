@@ -24,3 +24,5 @@ https://github.com/widox/vim-buffer-explorer-plugin.git
 https://github.com/zeis/vim-kolor.git
 https://github.com/scrooloose/syntastic.git
 https://github.com/elzr/vim-json.git
+# DBGP debugger client
+https://github.com/joonty/vdebug.git

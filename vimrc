@@ -233,7 +233,7 @@ map <A-9> 9gt
 
 " blowout trailing whitespaces,
 " they make baby jesus cry
-nnoremap <silent> <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " toggle paste mode
 map <F8> :set paste!<Bar>set paste?<CR>
 " toggle spell checking
@@ -252,7 +252,7 @@ if !exists("mm_filetype_config")
     autocmd BufNewFile,BufRead svn-commit.* set spell
     autocmd BufNewFile,BufRead COMMIT_EDITMSG set spell
 
-    " chage :make for different languages
+    " change :make for different languages
     autocmd FileType php set makeprg=php\ -l\ %
     " error format for both php -l and phpcs
     autocmd FileType php set errorformat=\"%f\"\\,%l\\,%c\\,%t%*[a-zA-Z]\\,\"%m\",%m\ in\ %f\ on\ line\ %l
@@ -261,6 +261,12 @@ if !exists("mm_filetype_config")
 
     " source code gets wrapped
     autocmd FileType javascript,php,html,python,actionscript set autoindent
+
+    " Thor classes are just Ruby
+    autocmd BufNewFile,BufRead *.thor set filetype=ruby
+    autocmd BufNewFile,BufRead *.thor set tabstop=2       " number of spaces for a tab
+    autocmd BufNewFile,BufRead *.thor set softtabstop=2   " using 2 spaces
+    autocmd BufNewFile,BufRead *.thor set shiftwidth=2    " number of spaces to autoindent
 endif
 
 " setup PHP Code Sniffer
