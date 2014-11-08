@@ -26,3 +26,5 @@ https://github.com/scrooloose/syntastic.git
 https://github.com/elzr/vim-json.git
 # DBGP debugger client
 https://github.com/joonty/vdebug.git
+# lightweight statusline
+https://github.com/bling/vim-airline.git
