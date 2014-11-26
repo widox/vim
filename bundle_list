@@ -1,4 +1,13 @@
-https://github.com/vim-scripts/snipMate.git
+# deprecated
+#https://github.com/vim-scripts/snipMate.git
+# requirements for new version
+https://github.com/tomtom/tlib_vim.git
+https://github.com/MarcWeber/vim-addon-mw-utils.git
+# maintained fork
+https://github.com/garbas/vim-snipmate.git
+# maybe not needed - has a ton of snippets
+https://github.com/honza/vim-snippets.git
+
 https://github.com/vim-scripts/The-NERD-tree.git
 #https://github.com/vim-scripts/Command-T.git
 https://github.com/vim-scripts/Better-Javascript-Indentation.git

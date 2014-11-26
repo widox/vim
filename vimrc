@@ -1,6 +1,4 @@
-filetype off 
-call pathogen#helptags()
-call pathogen#runtime_append_all_bundles()
+execute pathogen#infect()
 
 set nocompatible    " use Vim settings; must be first!
 let mapleader=","   " set mapleader to comma instead of backslash
