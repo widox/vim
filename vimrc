@@ -83,9 +83,22 @@ if has("gui_running")
     "au GUIEnter * simalt \~x
     set lines=999 columns=999
 else
-    set t_Co=256
-    set background=dark   " adapt colors for dark background
-    colorscheme kolor "badwolf desert256 lucius solarized molokai blackboard
+    "f &term =~ '256color'
+        " disable Background Color Erase (BCE) so that color schemes
+        " render properly when inside 256-color tmux and GNU screen.
+        " see also http://snk.tuxfamily.org/log/vim-256color-bce.html
+        "set t_ut=
+    "ndif
+
+    "set t_Co=256
+    "set background=dark   " adapt colors for dark background
+    "colorscheme kolor "badwolf desert256 lucius solarized molokai blackboard
+
+    " first https://github.com/chriskempson/base16-vim
+    if filereadable(expand("~/.vimrc_background"))
+      let base16colorspace=256
+      source ~/.vimrc_background
+    endif
 endif
 
 " For when you forget to sudo.. Really Write the file.
