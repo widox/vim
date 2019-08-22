@@ -63,6 +63,9 @@ silent !mkdir -p ~/.vim-tmp/
 set backupdir=~/.vim-tmp
 set directory=~/.vim-tmp
 
+" tell vim about `fzf`
+set rtp+=~/.fzf
+
 "---- Options for Windows
 if has("gui_running")
     set guioptions-=T " no toolbar
@@ -148,13 +151,15 @@ let g:tagbar_autoclose = 1
 " move cursor to window when opened
 let g:tagbar_autofocus = 1
 
-let g:ctrlp_map = '<leader>f'
-let g:ctrlp_show_hidden = 0          " ignore hidden files
-let g:ctrlp_custom_ignore = {
-            \ 'dir':  '\v[\/]\.(git|hg|svn)$|\app\/cache',
-            \ 'file': '\v\.(exe|so|dll)$'
-            \ }
-nnoremap <leader>b :CtrlPBuffer<CR>
+"let g:ctrlp_map = '<leader>f'
+"let g:ctrlp_show_hidden = 0          " ignore hidden files
+"let g:ctrlp_custom_ignore = {
+"            \ 'dir':  '\v[\/]\.(git|hg|svn)$|\app\/cache',
+"            \ 'file': '\v\.(exe|so|dll)$'
+"            \ }
+"nnoremap <leader>b :CtrlPBuffer<CR>
+nnoremap <leader>f :Files<CR>
+nnoremap <leader>b :Buffers<CR>
 
 " snipMate setup
 let g:snips_author = 'Matt McKeon'

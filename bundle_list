@@ -28,7 +28,7 @@ https://github.com/vim-scripts/PDV-revised.git
 https://github.com/vim-scripts/phpunit.git
 https://github.com/vim-scripts/Tagbar.git
 #https://github.com/tpope/vim-commentary.git
-https://github.com/kien/ctrlp.vim.git
+#https://github.com/kien/ctrlp.vim.git
 https://github.com/widox/vim-buffer-explorer-plugin.git
 https://github.com/zeis/vim-kolor.git
 https://github.com/scrooloose/syntastic.git
@@ -37,6 +37,8 @@ https://github.com/elzr/vim-json.git
 https://github.com/joonty/vdebug.git
 # lightweight statusline
 https://github.com/bling/vim-airline.git
+# fzf love
+https://github.com/junegunn/fzf.vim.git
 # base16 colorschemes
 https://github.com/chriskempson/base16-vim.git
 
