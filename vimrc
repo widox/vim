@@ -283,11 +283,15 @@ if !exists("mm_filetype_config")
     " source code gets wrapped
     autocmd FileType javascript,php,html,python,actionscript set autoindent
 
+    autocmd FileType ruby,javascript,vue set tabstop=2       " number of spaces for a tab
+    autocmd FileType ruby,javascript,vue set softtabstop=2   " using 2 spaces
+    autocmd FileType ruby,javascript,vue set shiftwidth=2    " number of spaces to autoindent
+
     " Thor classes are just Ruby
     autocmd BufNewFile,BufRead *.thor set filetype=ruby
-    autocmd BufNewFile,BufRead *.thor set tabstop=2       " number of spaces for a tab
-    autocmd BufNewFile,BufRead *.thor set softtabstop=2   " using 2 spaces
-    autocmd BufNewFile,BufRead *.thor set shiftwidth=2    " number of spaces to autoindent
+
+    " fix highlighting wonkiness in Vue files
+    autocmd FileType vue syntax sync fromstart
 endif
 
 " setup PHP Code Sniffer
