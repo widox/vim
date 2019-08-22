@@ -10,9 +10,12 @@ https://github.com/honza/vim-snippets.git
 
 https://github.com/vim-scripts/The-NERD-tree.git
 #https://github.com/vim-scripts/Command-T.git
-https://github.com/vim-scripts/Better-Javascript-Indentation.git
+#
+#https://github.com/vim-scripts/Better-Javascript-Indentation.git
+# this replaces --^
+https://github.com/pangloss/vim-javascript
+
 https://github.com/vim-scripts/matchit.zip.git
-https://github.com/vim-scripts/LustyJuggler.git
 https://github.com/vim-scripts/php.vim--Garvin.git
 #https://github.com/vim-scripts/taglist.vim.git
 https://github.com/vim-scripts/jsbeautify.git
@@ -27,7 +30,6 @@ https://github.com/vim-scripts/Tagbar.git
 #https://github.com/tpope/vim-commentary.git
 #https://github.com/kien/ctrlp.vim.git
 https://github.com/widox/vim-buffer-explorer-plugin.git
-https://github.com/zeis/vim-kolor.git
 https://github.com/scrooloose/syntastic.git
 https://github.com/elzr/vim-json.git
 # DBGP debugger client
