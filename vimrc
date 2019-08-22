@@ -28,6 +28,7 @@ set mouse=a
 set laststatus=2      " always display a status line at the bottom of the window
 set switchbuf=useopen " jump to open win that has a buffer already open
 set showcmd           " show how many of whatever is being selected
+set noequalalways     " Resize windows as little as possible.
 
 " better tab completion for :commands
 set wildmenu
@@ -53,7 +54,7 @@ set timeoutlen=500
 " quickly toggle folding
 nnoremap <Space> za
 set foldmethod=indent
-set foldlevelstart=0
+set foldlevelstart=99 " disable when opening a file
 
 " dont' let vim-json do conceal magic; annoying
 let g:vim_json_syntax_conceal = 0
@@ -249,7 +250,7 @@ map <A-9> 9gt
 
 " blowout trailing whitespaces,
 " they make baby jesus cry
-nnoremap <silent> <F6> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
+nnoremap <silent> <F4> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar>:nohl<CR>
 " toggle paste mode
 map <F8> :set paste!<Bar>set paste?<CR>
 " toggle spell checking
@@ -301,6 +302,11 @@ endfunction
 
 command! Phpcs execute RunPhpcs()
 autocmd BufRead *.php map <leader>M :execute RunPhpcs()<CR>
+
+" Opposite of join (breaK?).
+" A space is replaced with a carriage return; otherwise a carriage return is
+" inserted.
+nnoremap <expr> K getline('.')[col('.') - 1] == ' ' ? "r<CR>" : "i<CR><ESC>"
 
 " highlight stuff taken from https://github.com/sjl/dotfiles/blob/master/vim/vimrc
 " }}}
