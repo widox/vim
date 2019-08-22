@@ -17,15 +17,12 @@ https://github.com/vim-scripts/php.vim--Garvin.git
 #https://github.com/vim-scripts/taglist.vim.git
 https://github.com/vim-scripts/jsbeautify.git
 #https://github.com/vim-scripts/css_color.vim.git
-https://github.com/vim-scripts/phpcomplete.vim.git
-https://github.com/vim-scripts/xmledit.git
+#https://github.com/vim-scripts/phpcomplete.vim.git
 #https://github.com/vim-scripts/sessionman.vim.git
 #https://github.com/vim-scripts/tComment.git
 #https://github.com/vim-scripts/The-NERD-Commenter.git
 #https://github.com/vim-scripts/YankRing.vim.git
-https://github.com/vim-scripts/SuperTab-continued..git
-https://github.com/vim-scripts/PDV-revised.git
-https://github.com/vim-scripts/phpunit.git
+#https://github.com/vim-scripts/SuperTab-continued..git
 https://github.com/vim-scripts/Tagbar.git
 #https://github.com/tpope/vim-commentary.git
 #https://github.com/kien/ctrlp.vim.git

@@ -101,5 +101,5 @@ for conf_file in CONFIG_FILES:
 remove_bundles()
 install_bundles()
 #setup_commandt()
-fix_xmledit()
+#fix_xmledit()
 #copy_custom_snippets()

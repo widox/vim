@@ -224,11 +224,11 @@ autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 imap <C-space> <C-x><C-o>
 "}}}
 
-set complete+=.
-set complete+=w
-set complete+=k
-set complete+=b
-set complete+=t
+"set complete+=.
+"set complete+=w
+"set complete+=k
+"set complete+=b
+"set complete+=t
 
 set completeopt+=menuone,longest,preview
 
