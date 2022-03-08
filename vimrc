@@ -370,3 +370,10 @@ hi def InterestingWord6 guifg=#000000 ctermfg=16 guibg=#ff2c4b ctermbg=195
 " }}}
 
 noremap <silent> <leader>N :noh<cr>:call clearmatches()<cr>
+
+let g:neoformat_try_node_exe = 1
+let g:vim_jsx_pretty_colorful_config = 1
+
+" for easier debugging
+"let g:neoformat_verbose = 1
+map <leader>cp :Neoformat<CR>
