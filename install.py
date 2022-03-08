@@ -18,7 +18,7 @@ HOME_PATH = os.path.expanduser('~')
 def removefile(filename):
     removing_link = "%s/.%s" % (HOME_PATH, filename)
     ret = subprocess.call(["rm", "-rf", removing_link])
-    print "%s is the status code for removing %s" % (ret, removing_link)
+    print(f"ret is the status code for removing removing_link")
 
     return
 
@@ -28,9 +28,7 @@ def linkfile(filename):
     is_located = "%s" % (os.path.abspath(filename))
 
     ret = subprocess.call(["ln", "-s", is_located, link_location])
-    print "%s is the status code for linking %s to %s" % (ret,
-            is_located,
-            link_location)
+    print("ret is the status code for linking is_located to link_location")
     return
 
 
@@ -71,9 +69,9 @@ def fix_xmledit():
     html = os.path.join(xmledit_path, 'html.vim')
     mako = os.path.join(xmledit_path, 'mako.vim')
 
-    print xml
-    print html
-    print mako
+    print(xml)
+    print(html)
+    print(mako)
     subprocess.call('ln -s {0} {1}'.format(xml, html), shell=True)
     subprocess.call('ln -s {0} {1}'.format(xml, mako), shell=True)
 
