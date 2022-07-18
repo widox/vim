@@ -286,11 +286,11 @@ if !exists("mm_filetype_config")
     autocmd FileType py set errorformat=%C\ %.%#,%A\ \ File\ \"%f\"\\,\ line\ %l%.%#,%Z%[%^\ ]%\\@=%m
 
     " source code gets wrapped
-    autocmd FileType javascript,php,html,python,actionscript set autoindent
+    autocmd FileType javascript,typescript,php,html,python,actionscript set autoindent
 
-    autocmd FileType ruby,javascript,vue set tabstop=2       " number of spaces for a tab
-    autocmd FileType ruby,javascript,vue set softtabstop=2   " using 2 spaces
-    autocmd FileType ruby,javascript,vue set shiftwidth=2    " number of spaces to autoindent
+    autocmd FileType ruby,javascript,typescript,vue set tabstop=2       " number of spaces for a tab
+    autocmd FileType ruby,javascript,typescript,vue set softtabstop=2   " using 2 spaces
+    autocmd FileType ruby,javascript,typescript,vue set shiftwidth=2    " number of spaces to autoindent
 
     " Thor classes are just Ruby
     autocmd BufNewFile,BufRead *.thor set filetype=ruby
@@ -373,6 +373,7 @@ noremap <silent> <leader>N :noh<cr>:call clearmatches()<cr>
 
 let g:neoformat_try_node_exe = 1
 let g:vim_jsx_pretty_colorful_config = 1
+let g:snipMate = { 'snippet_version' : 1 }
 
 " for easier debugging
 "let g:neoformat_verbose = 1
